@@ -27,6 +27,20 @@ int main()
 
 	// 静态断言,编译期间求值，如果为假，编译会失败
 	static_assert(sizeof(void*) == 4, "Only 32-bit targets are supported");
+	
+	// 结构化绑定
+	auto [n, v] = read_entry(cin);
+	map<string, int> m;
+	for(const auto [key, value]: m)
+		cout << "{" << key "," << value << "}\n";
+	
+	void intcr(map<string, int>& m){
+		for(auto& [key, value]: m)
+			++value;
+	}
+	
+	complex<double> z = {1,2};
+	auto [re, im] = z + 2;
 
 
 }
